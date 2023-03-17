@@ -1,0 +1,23 @@
+
+:root{
+          
+    --secondaryColor:violet;
+    --tertiaryColor:grey;
+    --dangerColor:red;
+    --BodyColor:indigo;
+}
+
+.alertCss{
+    z-index: 2;
+    order: 1;
+    margin: 8px 6px;
+    position: sticky;
+    top: 120px;
+    left: 160vw;
+    width: max-content;
+    display: inline;
+}
+
+
+
+
