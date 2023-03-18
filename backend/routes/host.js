@@ -29,7 +29,7 @@ router.post(
     }
 
     // Extract the fields from the request body
-    const { event_name, name_host, place, limit, category, contact, description, images, budget, verification_status,date } = req.body;
+    const { event_name, name_host, place, limit, category, contact, description, images, budget, verification_status,date,no_people,people } = req.body;
 
     try {
       // Create a new hostEvent object with the extracted fields
@@ -46,6 +46,8 @@ router.post(
         budget,
         verification_status,
         date,
+        no_people,
+        people,
         user: id
       });
 
@@ -61,5 +63,15 @@ router.post(
     }
   }
 );
+
+router.get("/fetch_event", fetchUser, async (req, res) => {
+  try {
+    const data = await HostEventModel.find({ user: req.user.id });
+    res.status(200).json(data);
+  } catch (err) {
+    res.status(500).send("Internal error ocurred");
+    console.log(err);
+  }
+});
 
 module.exports = router;
