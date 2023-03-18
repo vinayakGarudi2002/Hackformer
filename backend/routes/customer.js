@@ -17,8 +17,7 @@ router.post("/register-event/:eventId", fetchUser, async (req, res) => {
       // Find the event by its id
       const event = await HostEventModel.findById(eventId);
 
-      const userid = req.user.id;
-      const data = await User.findById(userid)
+      const data = await User.findById(userId)
   
       // Check if the event is already full
       if (event.no_people >= event.limit) {
@@ -36,9 +35,10 @@ router.post("/register-event/:eventId", fetchUser, async (req, res) => {
       data.register.push(eventId);
       // Save the updated event to the database
       const updatedEvent = await event.save();
+      const updatedUser = await data.save();
   
       // Return a response with the updated event object
-      return res.json(updatedEvent);
+      return res.json({updatedEvent,updatedUser});
     } catch (error) {
       console.log(error);
       res.status(500).send("Internal Error Occurred");
