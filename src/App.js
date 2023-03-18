@@ -9,6 +9,8 @@ import Navbar from './component/Navbar';
 import Signup from './component/Signup';
 import StudentForm from './component/StudentForm';
 import store from './state/store';
+import CreateHostEventForm from './component/CreateHostEventForm';
+
 function App() {
   return (
     <div className="App">
@@ -28,6 +30,7 @@ function App() {
       <Route path="/login" element={<Login/>} />
       <Route path="/signup" element={<Signup/>} />
       <Route path="/form" element={<StudentForm/>} />
+      <Route path="/host_form" element={<CreateHostEventForm/>} />
      
 </Routes>
     {/* </div> */}
