@@ -11,6 +11,7 @@ app.use(cors())
 app.use(express.json());  // it basicaly allow me to get request in jason
 app.use("/api/auth",require("./routes/auth"))
 app.use("/api/form",require("./routes/form"))
+app.use("/api/host",require("./routes/host"))
 
 
 app.listen(port, () => {
