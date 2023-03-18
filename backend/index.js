@@ -13,6 +13,7 @@ app.use("/api/auth",require("./routes/auth"))
 app.use("/api/form",require("./routes/form"))
 app.use("/api/host",require("./routes/host"))
 app.use("/api/customer",require("./routes/customer"))
+app.use("/api/cloudinary",require("./routes/cloudinary"))
 
 
 app.listen(port, () => {

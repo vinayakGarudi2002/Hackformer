@@ -23,6 +23,10 @@ const UserSchema = new Schema({
     type:String,
     required:true
   },
+  register: {
+    type: [String],
+    required: true
+  },
   // The date field is optional and will be set to the current date if not provided
   date:{
     type:String,

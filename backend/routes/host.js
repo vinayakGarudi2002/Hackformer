@@ -78,8 +78,9 @@ router.get("/fetch_event", fetchUser, async (req, res) => {
 
 
 // Get all events
-router.get('/events', async (req, res) => {
+router.get('/events',fetchUser, async (req, res) => {
   try {
+
     const events = await HostEventModel.find().populate();
     res.json(events);
   } catch (err) {
