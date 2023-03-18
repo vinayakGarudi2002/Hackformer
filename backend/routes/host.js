@@ -29,7 +29,7 @@ router.post(
     }
 
     // Extract the fields from the request body
-    const { event_name, name_host, place, limit, category, contact, description, images, budget, verification_status,date,no_people,people } = req.body;
+    const {price, event_name, name_host, place, limit, category, contact, description, images, budget, verification_status,date,no_people,people } = req.body;
 
     try {
       // Create a new hostEvent object with the extracted fields
@@ -48,7 +48,8 @@ router.post(
         date,
         no_people,
         people,
-        user: id
+        user: id,
+        price
       });
 
       // Save the hostEvent object to the database
@@ -71,6 +72,19 @@ router.get("/fetch_event", fetchUser, async (req, res) => {
   } catch (err) {
     res.status(500).send("Internal error ocurred");
     console.log(err);
+  }
+});
+
+
+
+// Get all events
+router.get('/events', async (req, res) => {
+  try {
+    const events = await HostEventModel.find().populate();
+    res.json(events);
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).send('Server Error');
   }
 });
 

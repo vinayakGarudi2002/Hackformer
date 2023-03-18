@@ -33,7 +33,6 @@ const EventSchema = new Schema({
       type: String,
       required: true
   },
-  
   images: {
       type: [String],
       required: true
@@ -42,6 +41,10 @@ const EventSchema = new Schema({
       type: Number,
       required: true
   },
+  price: {
+    type: Number,
+    required: true
+},
   verification_status: {
       type: String,
       enum: ['pending', 'approved', 'rejected'],
