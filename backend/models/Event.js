@@ -33,6 +33,7 @@ const EventSchema = new Schema({
       type: String,
       required: true
   },
+  
   images: {
       type: [String],
       required: true
