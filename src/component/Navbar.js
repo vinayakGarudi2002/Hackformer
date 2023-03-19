@@ -29,7 +29,12 @@ const Navbar = () => {
          
           to="/about">About</Link>
         </li>
-       
+        <li className="nav-item">
+         <Link className={`nav-link ${location.pathname==="/host_form"?"active":""}`}
+         style={{ color: `${location.pathname==="/host_form"?"purple":"black"}`}} 
+         
+          to="/host_form">Host Event</Link>
+        </li>
      
       </ul>
       

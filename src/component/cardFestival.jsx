@@ -27,7 +27,7 @@ const FestivalCard =(props)=>{
         <div className="col-lg-4">
         <div >
         
-          <img className=" imagecard " src={"https://drive.google.com/file/d/1AdvrDhAicThAFT0WxMgTnottuVqgc6Xl/view"} alt="Generic placeholder image" width="200" height="170" />
+          <img className=" imagecard " src={props.img} alt="Generic placeholder image" width="200" height="170" />
           </div>
           <h2>{props.name}</h2>
           <p>{props.description}</p>
