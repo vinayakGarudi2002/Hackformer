@@ -78,7 +78,7 @@ router.get("/fetch_event", fetchUser, async (req, res) => {
 
 
 // Get all events
-router.get('/events',fetchUser, async (req, res) => {
+router.get('/events', async (req, res) => {
   try {
 
     const events = await HostEventModel.find().populate();
@@ -89,4 +89,20 @@ router.get('/events',fetchUser, async (req, res) => {
   }
 });
 
+
+//get specific event filter
+router.get("/events/:eventId", async (req, res) => {
+  try {
+    const eventId = req.params.eventId;
+
+    // Find the event by its id
+    const event = await HostEventModel.findById(eventId);
+
+    // Return a response with the event object
+    return res.json(event);
+  } catch (error) {
+    console.log(error);
+    res.status(500).send("Internal Error Occurred");
+  }
+});
 module.exports = router;

@@ -13,7 +13,7 @@ const EventCard = ({ event }) => {
         <p>Price: {event.price}</p>
         <p>Date: {event.date}</p>
         <p>Number of people: {event.no_people}</p>
-        <img src={event.images[0]}/>
+        <p>Number of people: {event.no_people}</p>
       </div>
     </div>
   );
@@ -21,23 +21,68 @@ const EventCard = ({ event }) => {
 
 const EventList = () => {
   const [events, setEvents] = useState([]);
+  const [categories, setCategories] = useState([]);
+  const [filteredEvents, setFilteredEvents] = useState([]);
+  const [selectedCategory, setSelectedCategory] = useState('');
+  const [id, setId] = useState();
+
+  const host = "http://localhost:5000";
+
+  const getuserdata = async () => {
+    try {
+      const response = await fetch(`${host}/api/auth/getuser`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          mode: "cors",
+          "auth-token": localStorage.getItem('token'),
+        },
+      });
+      const data = await response.json();
+      if (response.status === 200) {
+        setId(data.register[data.register.length -1])
+        return ;
+      } else {
+        return false;
+      }
+    } catch (err) {
+      console.error(err);
+      return false;
+    }
+  };
+
+  const fetchEvents = async () => {
+    const response = await axios.get('http://localhost:5000/api/host/events');
+    const categories = [...new Set(response.data.map(event => event.category))];
+    setEvents(response.data);
+    setCategories(categories);
+    return response.data;
+  };
+
+  const filterEvents = (category) => {
+    setSelectedCategory(category);
+    setFilteredEvents(events.filter(event => event.category === category));
+  };
 
   useEffect(() => {
-    const fetchEvents = async () => {
-      const response = await axios.get('http://localhost:5000/api/host/events');
-      setEvents(response.data);
-    };
-
+    getuserdata();
     fetchEvents();
   }, []);
 
   return (
     <div>
-      {events.map(event => (
+      <select value={selectedCategory} onChange={(e) => filterEvents(e.target.value)}>
+        <option value="">All categories</option>
+        {categories.map(category => (
+          <option key={category} value={category}>{category}</option>
+        ))}
+      </select>
+      {(filteredEvents.length > 0 ? filteredEvents : events).map(event => (
         <EventCard key={event._id} event={event} />
       ))}
     </div>
   );
 };
+
 
 export default EventList;
