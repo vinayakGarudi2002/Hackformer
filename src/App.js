@@ -9,8 +9,12 @@ import Navbar from './component/Navbar';
 import Signup from './component/Signup';
 import StudentForm from './component/StudentForm';
 import store from './state/store';
+
+import RegisterEvent from './component/RegisterFestival';
+
 import CreateHostEventForm from './component/CreateHostEventForm';
 import EventList from './component/Fetch';
+
 
 function App() {
   return (
@@ -30,6 +34,7 @@ function App() {
       <Route path="/about" element={<About/>} />
       <Route path="/login" element={<Login/>} />
       <Route path="/signup" element={<Signup/>} />
+      <Route path="/RegisterFestival" element={<RegisterEvent/>} />
       <Route path="/form" element={<StudentForm/>} />
       <Route path="/host_form" element={<CreateHostEventForm/>} />
       <Route path="/event_list" element={<EventList/>} />
