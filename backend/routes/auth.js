@@ -11,6 +11,10 @@ const JWT_SEC = "vinaya$k"; // keep secret and protected
 
 // Router 1: create a user using post request : Post : localhost:5000/api/auth/createuser (No Login required)
 
+// const bcrypt = require("bcryptjs");
+// const jwt = require("jsonwebtoken");
+// const { check, validationResult } = require("express-validator");
+
 router.post(
   "/createuser",
   [
@@ -45,6 +49,8 @@ router.post(
         name: req.body.name,
         email: req.body.email,
         password: hash,
+        typeUser: req.body.typeUser,
+        date: req.body.date
       }).catch((error) => {
         // Return a response with a status code of 500 (Internal Server Error)
         res.status(500).send("some internal error ocured");
@@ -69,6 +75,7 @@ router.post(
     }
   }
 );
+
 
 //Router 2:Authentivate a user using post requestn: Post : localhost:5000/api/auth/login
 

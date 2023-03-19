@@ -1,10 +1,15 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 // import { alertContext } from "../context/Alert/AlertContext";  //----alert
-
+import { useDispatch } from 'react-redux'
+import  {actionCreator} from '../state/index'
+import { bindActionCreators } from 'redux'
 import "./Style.css"
 const Signup = () => {
 // const {toSetAlerts}=useContext(alertContext);   // ----alert
+const dispatch = useDispatch();
+const { alertAction } = bindActionCreators(actionCreator, dispatch);
+
 
   let navigate = useNavigate();
   const host = "http://localhost:5000"
@@ -47,22 +52,42 @@ const Signup = () => {
 
          navigate(`/`);
         //  toSetAlerts("visible","Success fully signup","success")    //...alert
-
+         alertAction({
+          display:"visible",
+          message:"Success fully signup",
+          type:"success"
+        })    //...alert
          return;
           
         }else{
           // toSetAlerts("visible","Enter Valid Credentials","warning")    //...alert
+          alertAction({
+            display:"visible",
+            message:"Enter Valid Credentials",
+            type:"warning"
+          })    //..
         }
         
   
         } catch (err) {
             // alert("Enter Valid Credentials error")
         //  toSetAlerts("visible","Some Error ocurred try letter","danger")    //...alert
+         alertAction({
+          display:"visible",
+          message:"Some Error ocurred try letter",
+          type:"danger"
+        })    //..
+
 
         console.error(err);
         }
     }else{
       // toSetAlerts("visible","password not match","warning")    //...alert
+      alertAction({
+        display:"visible",
+        message:"password not match",
+        type:"warning"
+      })    //..
 
     }
 
