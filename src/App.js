@@ -9,6 +9,7 @@ import Navbar from './component/Navbar';
 import Signup from './component/Signup';
 import StudentForm from './component/StudentForm';
 import store from './state/store';
+import RegisterEvent from './component/RegisterFestival';
 function App() {
   return (
     <div className="App">
@@ -27,6 +28,7 @@ function App() {
       <Route path="/about" element={<About/>} />
       <Route path="/login" element={<Login/>} />
       <Route path="/signup" element={<Signup/>} />
+      <Route path="/RegisterFestival" element={<RegisterEvent/>} />
       <Route path="/form" element={<StudentForm/>} />
      
 </Routes>
