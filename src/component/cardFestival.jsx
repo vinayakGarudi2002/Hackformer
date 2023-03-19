@@ -14,7 +14,7 @@ const FestivalCard =(props)=>{
 
 
     function handleClick(name){
-        console.log(name);
+        console.log(props.contact);
 
       
 
@@ -32,7 +32,7 @@ const FestivalCard =(props)=>{
           <h2>{props.name}</h2>
           <p>{props.description}</p>
           
-          <p><button className="btn btn-secondary"><Link className="navbar-brand" onClick={()=>handleClick(props.name)} to="/RegisterFestival" state={{ name: props.name , description: props.description ,img: props.img }}>Register</Link></button></p>
+          <p><button className="btn btn-secondary"><Link className="navbar-brand" onClick={()=>handleClick(props.name)} to="/RegisterFestival" state={{ name: props.name , description: props.description ,img: props.img,id:props.id }}>Register</Link></button></p>
           
         </div>
 

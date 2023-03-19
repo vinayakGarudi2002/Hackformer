@@ -1,12 +1,15 @@
 import React from "react";
 // import { useNavigate } from "react-router-dom";
 import ShowFestival from "./showFestival";
+import {  Link,useLocation } from "react-router-dom";
 
 
 
 
 
 const Home = () => {
+  const location=useLocation();
+
   // const navigate = useNavigate();
   // const authToken = localStorage.getItem('token');
 
@@ -28,7 +31,9 @@ const Home = () => {
             <div class="text-at-home-carousel carousel-caption text-left">
               <h1 className="main-heading">Indulge in the beauty of culture.</h1>
               <p> Discover a World of Local Festivities: Celebrate Culture, Food, Music and More with Our Festival Guide!</p>
-              <p><a class="btn btn-lg btn-primary" href="#" role="button">Sign up today</a></p>
+              <p>
+              <Link className="btn btn-lg btn-primary" to="/signup" role="button"style={{ boxShadow: `${location.pathname==="/signup"?"3px 3px rgb(80 80 80)":""}`,marginLeft:"10px"}}>Sign up</Link>
+              </p>
             </div>
           </div>
         </div>
