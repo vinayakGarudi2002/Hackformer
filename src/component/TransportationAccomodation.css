@@ -1,0 +1,53 @@
+body{
+    background-image: url('https://media.giphy.com/media/l41YcgNSPj6Wy1KyQ/giphy.gif');
+    background-size: cover;
+    height: 100vh;
+    padding:0;
+    margin:0;
+  }
+
+  img{
+    width: 85%;
+    margin: 27px 0px;
+    border-radius: 2%;
+  }
+
+  .parent {
+    display: flex;
+    width: 80%;
+    margin-left: 140px;
+  }
+
+  .child {
+    flex: 1;
+    border: 2px solid rgb(47, 47, 47);
+    margin: 150px;
+    height: 650px;
+    margin-top: 10px;
+    border-radius: 4%;
+    text-align: center;
+    font-size: xx-large;
+    color: antiquewhite;
+    background-color: rgb(47, 47, 47);
+  }
+  
+  .child:first-child {
+    margin-right: 20px;
+    margin-top: 10px;
+  }
+
+  p{
+    font-size:22px;
+    padding: 24px;
+    text-align: left;
+    margin-left: 7px;
+    margin-top: -30px;
+  }
+
+  .price{
+    border: 1px solid antiquewhite;
+    width: 121px;
+    font-size: 22px;
+    margin-left: 155px;
+    margin-top: -8px;
+  }
