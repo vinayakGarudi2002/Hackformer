@@ -14,6 +14,8 @@ import RegisterEvent from './component/RegisterFestival';
 
 import CreateHostEventForm from './component/CreateHostEventForm';
 import EventList from './component/Fetch';
+import HostHomepage from './component/HostHomepage';
+import TransportationAccomodation from './component/TransportationAccomodation';
 
 
 function App() {
@@ -38,6 +40,8 @@ function App() {
       <Route path="/form" element={<StudentForm/>} />
       <Route path="/host_form" element={<CreateHostEventForm/>} />
       <Route path="/event_list" element={<EventList/>} />
+      <Route path="/host_home" element={<HostHomepage/>} />
+      <Route path="/transport_accomodate" element={<TransportationAccomodation/>} />
      
 </Routes>
     {/* </div> */}
