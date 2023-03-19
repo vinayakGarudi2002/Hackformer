@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import axios from "axios";
+import TransportationAccomodation from "./TransportationAccomodation";
 
 function RegisterEvent() {
   const location = useLocation();
@@ -57,6 +58,8 @@ function RegisterEvent() {
           {loading ? "Registering..." : "Register"}
         </button>
       </div>
+
+      <TransportationAccomodation/>
     </div>
   );
 }

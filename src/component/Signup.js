@@ -17,7 +17,8 @@ const { alertAction } = bindActionCreators(actionCreator, dispatch);
     name: "",
     email: "",
     cpassword: "",
-    password:""
+    password:"",
+    typeUser:""
   });
 
   // const [password,setPassword]=useState("");
@@ -33,7 +34,7 @@ const { alertAction } = bindActionCreators(actionCreator, dispatch);
 
   const handleSubmit= async (e)=>{
     e.preventDefault();
-   const {email,password,name}=loginForm;
+   const {email,password,name,typeUser}=loginForm;
     if((loginForm.cpassword)===loginForm.password){
       try {
         const response = await fetch(`${host}/api/auth/createuser`, {
@@ -43,7 +44,7 @@ const { alertAction } = bindActionCreators(actionCreator, dispatch);
           mode: 'cors',
          
           },
-          body: JSON.stringify({email,password,name})
+          body: JSON.stringify({email,password,name,typeUser})
         });
         const data = await response.json();
         if (response.status === 200) {
@@ -169,7 +170,27 @@ const { alertAction } = bindActionCreators(actionCreator, dispatch);
             }}
           />
         </div>
-       
+        <div>
+        <div className="signup-type">Type of User</div>
+<div className="form-check">
+  <input className="form-check-input" type="radio" name="typeUser" id="typeUser"   value={"host"}
+            onClick={(e) => {
+              loginFormChange(e);
+            }}/>
+  <label className="form-check-label" for="flexRadioDefault1">
+    Host
+  </label>
+</div>
+<div className="form-check">
+  <input className="form-check-input" type="radio" name="typeUser" id="typeUser"   value={"customer"}
+            onClick={(e) => {
+              loginFormChange(e);
+            }}/>
+  <label className="form-check-label" for="flexRadioDefault2">
+    Customer
+  </label>
+</div>
+        </div>
    
         <button type="submit" className="btn btn-primary" >
           Submit

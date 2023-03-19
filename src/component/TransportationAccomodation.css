@@ -1,0 +1,39 @@
+.card {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+    overflow: hidden;
+    width: 300px;
+}
+
+.card-header {
+    background-color: #f1f1f1;
+    color: #333;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 10px;
+    text-align: center;
+}
+
+.card-body {
+    padding: 10px;
+}
+
+.card-body img {
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+}
+
+.card-body p {
+    margin-bottom: 10px;
+    color: black;
+}
+
+.price {
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    color: rgb(0, 0, 0);
+}
